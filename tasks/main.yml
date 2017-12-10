@@ -1,0 +1,30 @@
+---
+- name: Create folder
+  file:
+    path: "{{ _adminer_download_dest | dirname }}"
+    state: directory
+  notify: permissions-apache
+
+- name: Download
+  get_url:
+    url: "{{ _adminer_download_url }}"
+    dest: "{{ _adminer_download_dest }}"
+  notify: permissions-apache
+
+- name: Download theme
+  get_url:
+    url: "{{ _adminer_theme_url }}"
+    dest: "{{ _adminer_theme_dest }}"
+  notify: permissions-apache
+
+- name: Add site
+  template:
+    src: ./templates/adminer.conf.j2
+    dest: /etc/apache2/conf-available/adminer.conf
+
+- name: Enable site
+  file:
+    src: /etc/apache2/conf-available/adminer.conf
+    dest: /etc/apache2/conf-enabled/adminer.conf
+    state: link
+  notify: restart-apache
