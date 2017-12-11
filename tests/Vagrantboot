@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Create vagrant log directory
+mkdir -p /var/log/vagrant
+
+# Initialize vagrant log file variable
+VLOG=/var/log/vagrant/boot.log
+
+# Disable prompt
+export DEBIAN_FRONTEND=noninteractive
+
+# Install ansible
+apt-get install -y ansible >> $VLOG
+
+# Create roles directory
+#mkdir -p /etc/ansible/roles
+
+# Create symlink to vagrant
+#ln -s -f /vagrant /etc/ansible/roles/vagrant
+
+# Install role requirements
+ansible-galaxy install -f -r /etc/ansible/roles/vagrant/requirements.yml >> $VLOG

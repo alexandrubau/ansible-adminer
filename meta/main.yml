@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - src: git+https@github.com:alexandrubau/ansible-apache.git
-    name: apache
+  - name: apache
+    src: https://github.com/alexandrubau/ansible-apache.git
