@@ -3,19 +3,19 @@
   file:
     path: "{{ _adminer_download_dest | dirname }}"
     state: directory
-  notify: permissions-apache
+  notify: site-permissions
 
 - name: Download
   get_url:
     url: "{{ _adminer_download_url }}"
     dest: "{{ _adminer_download_dest }}"
-  notify: permissions-apache
+  notify: site-permissions
 
 - name: Download theme
   get_url:
     url: "{{ _adminer_theme_url }}"
     dest: "{{ _adminer_theme_dest }}"
-  notify: permissions-apache
+  notify: site-permissions
 
 - name: Add site
   template:
@@ -27,4 +27,4 @@
     src: /etc/apache2/conf-available/adminer.conf
     dest: /etc/apache2/conf-enabled/adminer.conf
     state: link
-  notify: restart-apache
+  notify: restart-webserver
