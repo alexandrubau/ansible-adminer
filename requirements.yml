@@ -3,3 +3,5 @@
   src: https://github.com/alexandrubau/ansible-broker.git
 - name: apache
   src: https://github.com/alexandrubau/ansible-apache.git
+- name: php
+  src: https://github.com/alexandrubau/ansible-php.git
