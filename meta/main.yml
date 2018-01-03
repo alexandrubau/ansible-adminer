@@ -1,7 +1,7 @@
 ---
 dependencies:
-  - name: broker
-    src: https://github.com/alexandrubau/ansible-broker.git
+  - name: core
+    src: https://github.com/alexandrubau/ansible-core.git
   - name: apache
     src: https://github.com/alexandrubau/ansible-apache.git
   - name: php
