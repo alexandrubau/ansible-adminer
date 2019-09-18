@@ -17,14 +17,30 @@
     dest: "{{ _adminer_theme_dest }}"
   notify: site-permissions
 
-- name: Add site
+- name: Add apache site
   template:
-    src: ./templates/adminer.conf.j2
-    dest: /etc/apache2/conf-available/adminer.conf
+    src: ./templates/adminer.apache.conf.j2
+    dest: /etc/apache2/sites-available/adminer.conf
+  when: _apache_role is defined
 
-- name: Enable site
+- name: Enable apache site
   file:
-    src: /etc/apache2/conf-available/adminer.conf
-    dest: /etc/apache2/conf-enabled/adminer.conf
+    src: /etc/apache2/sites-available/adminer.conf
+    dest: /etc/apache2/sites-enabled/adminer.conf
     state: link
+  when: _apache_role is defined
+  notify: restart-webserver
+
+- name: Add nginx site
+  template:
+    src: ./templates/adminer.nginx.conf.j2
+    dest: /etc/nginx/sites-available/adminer.conf
+  when: _nginx_role is defined
+
+- name: Enable nginx site
+  file:
+    src: /etc/nginx/sites-available/adminer.conf
+    dest: /etc/nginx/sites-enabled/adminer.conf
+    state: link
+  when: _nginx_role is defined
   notify: restart-webserver

@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerName  adminer.local
+    # Indexes + Directory Root.
+    DirectoryIndex index.html index.php
+    DocumentRoot {{ _adminer_download_dest | dirname }}
+    <Directory {{ _adminer_download_dest | dirname }}>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>

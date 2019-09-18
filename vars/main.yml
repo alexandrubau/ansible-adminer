@@ -1,6 +1,6 @@
 ---
 _adminer_role: ~
 _adminer_download_url: http://www.adminer.org/latest.php
-_adminer_download_dest: /var/www/adminer/adminer.php
+_adminer_download_dest: /var/www/adminer/index.php
 _adminer_theme_url: https://raw.githubusercontent.com/vrana/adminer/master/designs/pappu687/adminer.css
 _adminer_theme_dest: /var/www/adminer/adminer.css

@@ -2,7 +2,9 @@
 dependencies:
   - name: core
     src: https://github.com/alexandrubau/ansible-core.git
-  - name: apache
-    src: https://github.com/alexandrubau/ansible-apache.git
+  # - name: apache
+  #   src: https://github.com/alexandrubau/ansible-apache.git
+  # - name: nginx
+  #   src: https://github.com/alexandrubau/ansible-nginx.git
   - name: php
     src: https://github.com/alexandrubau/ansible-php.git
