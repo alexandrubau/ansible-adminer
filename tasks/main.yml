@@ -3,19 +3,16 @@
   file:
     path: "{{ _adminer_download_dest | dirname }}"
     state: directory
-  notify: site-permissions
 
 - name: Download
   get_url:
     url: "{{ _adminer_download_url }}"
     dest: "{{ _adminer_download_dest }}"
-  notify: site-permissions
 
 - name: Download theme
   get_url:
     url: "{{ _adminer_theme_url }}"
     dest: "{{ _adminer_theme_dest }}"
-  notify: site-permissions
 
 - name: Add apache site
   template:
