@@ -3,7 +3,7 @@ server {
     listen [::]:80;
 
     server_name adminer.local;
-    set $base {{ _adminer_download_dest | dirname }};
+    set $base {{ _adminer_download_dest|dirname }};
     root $base;
 
     # index.php

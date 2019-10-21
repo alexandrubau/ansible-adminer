@@ -1,7 +1,7 @@
 ---
 - name: Create folder
   file:
-    path: "{{ _adminer_download_dest | dirname }}"
+    path: "{{ _adminer_download_dest|dirname }}"
     state: directory
 
 - name: Download
